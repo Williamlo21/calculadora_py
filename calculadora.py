@@ -24,6 +24,19 @@ def buscarOperacion(operacion, n1, n2):
         opciones[operacion](float(n1), float(n2))
     else:
         print("Operación no disponible.")
+def solicitarnumero():
+    n = input()
+    nv = validarNumero(n)
+    if nv:
+        return nv
+    
+def validarNumero(n):
+    try:
+        n = float(n)
+    except:
+        print(str(n) + " no es un número válido")
+
+
 
 print("Esta es una calculadora")
 print("Por favor indica qué operación deseas realizar.")
@@ -38,7 +51,10 @@ while operacion != 's' and operacion != 'r' and operacion != 'm' and operacion !
 
 print("Escogiste la opción:", operacion)
 print("Ahora digita el primer número para la operación:")
-n1 = input()
-print("Ahora el segundo número:")
-n2 = input()
-buscarOperacion(operacion, n1, n2)
+n1 = solicitarnumero()
+if n1:
+    print("Ahora el segundo número:")
+    n2 = solicitarnumero()
+    if n2:
+        buscarOperacion(operacion, n1, n2)
+    
