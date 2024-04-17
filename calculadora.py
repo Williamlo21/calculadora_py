@@ -27,12 +27,18 @@ def buscarOperacion(operacion, n1, n2):
 def solicitarnumero():
     n = input()
     nv = validarNumero(n)
-    if nv:
+    if nv or nv == 0:
         return nv
+    else:
+        print(str(nv))
     
 def validarNumero(n):
     try:
         n = float(n)
+        if n == 0:
+            return n
+        elif n != 0:
+            return n
     except:
         print(str(n) + " no es un número válido")
 
@@ -52,9 +58,9 @@ while operacion != 's' and operacion != 'r' and operacion != 'm' and operacion !
 print("Escogiste la opción:", operacion)
 print("Ahora digita el primer número para la operación:")
 n1 = solicitarnumero()
-if n1:
+if n1 or n1 == 0:
     print("Ahora el segundo número:")
     n2 = solicitarnumero()
-    if n2:
+    if n2 or n2 == 0:
         buscarOperacion(operacion, n1, n2)
     
